@@ -1,0 +1,83 @@
+:root {
+  --fondo: #f6f4ef;
+  --tarjeta: #ffffff;
+  --texto: #25221d;
+  --suave: #6d675d;
+  --borde: #ddd8cc;
+  --acento: #b4531a;
+  --acento-oscuro: #8f3f12;
+  --ok-fondo: #e4f2e3;
+  --ok-texto: #1f5a22;
+  --aviso-fondo: #fff2d6;
+  --aviso-texto: #7a5100;
+  --error-fondo: #fbe3e1;
+  --error-texto: #8a1f17;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+h1 small { font-size: 0.5em; color: var(--suave); font-weight: 400; margin-left: 8px; }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+
+section {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px 6px; border-bottom: 1px solid var(--borde); text-align: left; }
+th { font-size: 0.8rem; text-transform: uppercase; color: var(--suave); letter-spacing: 0.03em; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.vacio { text-align: center; color: var(--suave); padding: 20px; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--acento);
+  background: var(--acento);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+button:hover { background: var(--acento-oscuro); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.secundario { background: transparent; color: var(--acento); }
+button.secundario:hover { background: #f4e6dc; }
+button.mini { padding: 2px 9px; min-width: 30px; }
+
+.cantidad { display: inline-flex; align-items: center; gap: 6px; }
+
+.total { font-size: 1.3rem; text-align: right; margin: 14px 0 2px; }
+.nota { text-align: right; font-size: 0.8rem; color: var(--suave); margin: 0 0 14px; }
+
+form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+form label { font-weight: 600; }
+form input {
+  flex: 1 1 200px;
+  font: inherit;
+  padding: 7px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+}
+
+#mensaje { min-height: 0; margin-bottom: 16px; }
+#mensaje:not(:empty) { padding: 10px 14px; border-radius: 8px; }
+#mensaje.ok    { background: var(--ok-fondo);    color: var(--ok-texto); }
+#mensaje.aviso { background: var(--aviso-fondo); color: var(--aviso-texto); }
+#mensaje.error { background: var(--error-fondo); color: var(--error-texto); }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corralón Don Pedro - Presupuestos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Un solo listener (delegación) en <main> atiende catálogo, carrito y "Vaciar" -->
+  <main id="app">
+    <h1>Corralón Don Pedro <small>Presupuestador</small></h1>
+
+    <div id="mensaje" role="status" aria-live="polite"></div>
+
+    <section>
+      <h2>Materiales</h2>
+      <table>
+        <thead>
+          <tr><th>Material</th><th>Unidad</th><th class="num">Precio</th><th></th></tr>
+        </thead>
+        <tbody id="catalogo"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Presupuesto en armado</h2>
+      <table>
+        <thead>
+          <tr><th>Material</th><th class="num">Cantidad</th><th class="num">Subtotal</th><th></th></tr>
+        </thead>
+        <tbody id="carrito"></tbody>
+      </table>
+      <p class="total">Total estimado: <strong id="total"></strong></p>
+      <p class="nota">Es un estimado con los precios que ve la pantalla. El total definitivo lo calcula la base al guardar.</p>
+
+      <form id="form-guardar">
+        <label for="cliente">Cliente</label>
+        <input id="cliente" name="cliente" type="text" maxlength="100" placeholder="Nombre del cliente" autocomplete="off">
+        <button type="submit" id="btn-guardar">Guardar presupuesto</button>
+        <button type="button" id="btn-vaciar" data-accion="vaciar" class="secundario">Vaciar</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Presupuestos guardados</h2>
+      <table>
+        <thead>
+          <tr><th>N°</th><th>Cliente</th><th>Fecha</th><th class="num">Items</th><th class="num">Total</th></tr>
+        </thead>
+        <tbody id="historial"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
